@@ -188,3 +188,42 @@ animation: heartbeat 1.5s ease-in-out infinite;
     font-size: 20px;
 
 }
+
+/* --- Add this to the VERY bottom of index.css --- */
+
+@media screen and (max-width: 768px) {
+    .step {
+        /* Force the modal to never exceed 75% of screen height */
+        max-height: 75vh !important; 
+        
+        /* Enable scrolling inside the white box */
+        overflow-y: scroll !important; 
+        
+        /* Reduce padding to save space */
+        padding: 20px 15px !important; 
+        
+        /* Ensure the box stays visually centered */
+        margin-top: 0 !important;
+    }
+
+    /* Stack the 3 reasons vertically */
+    .incredibleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Adjust the cards */
+    .reasonCard {
+        width: 100%;
+        margin: 10px 0;
+        box-sizing: border-box; /* Prevents padding from breaking width */
+    }
+    
+    /* Ensure title text isn't too huge */
+    .step h2 {
+        font-size: 1.5rem;
+    }
+}
+
