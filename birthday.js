@@ -148,6 +148,24 @@ function toggleVisibility(currentStepId) {
     updateProgressBar(nextStepNumber);
 }
 
+function goBack(currentStepId) {
+    // Hide current step
+    const currentStep = document.getElementById(currentStepId);
+    currentStep.classList.remove('active');
+    
+    // Show previous step
+    const prevStepNumber = parseInt(currentStepId.replace('step', '')) - 1;
+    const prevStepId = `step${prevStepNumber}`;
+    const prevStep = document.getElementById(prevStepId);
+    
+    if (prevStep) {
+        prevStep.classList.add('active');
+    }
+    
+    // Update progress bar
+    updateProgressBar(prevStepNumber);
+}
+
 function updateProgressBar(stepNumber) {
     const totalSteps = 5; // Total number of steps
     const progressPercentage = (stepNumber / totalSteps) * 100;
@@ -164,4 +182,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize progress bar
     updateProgressBar(1);
+
 });
